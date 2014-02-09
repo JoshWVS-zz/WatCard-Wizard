@@ -1,0 +1,15 @@
+from BeautifulSoup import BeautifulSoup
+
+data = open('January Account History.txt', 'r')
+html = data.read() 
+
+soup = BeautifulSoup(''.join(html))
+
+table = soup.find('table')
+
+charges = table.findAll('td', id='oneweb_financial_history_td_amount')
+
+for td in charges:
+   print td
+
+#print text
